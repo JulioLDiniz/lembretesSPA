@@ -10,36 +10,26 @@
 			<title>Freelancer - Start Bootstrap Theme</title>
 		</head>
 		<link href="assets/css/freelancer.css" rel="stylesheet">
-		<meu-menu/>
-		<tabela v-bind:heads="['Usuário', 'E-mail']" v-bind:registros="registros"></tabela>
+		<meu-menu :rotas="routes" />
+		<router-view></router-view>
 	</div>
+	
 </template>
 
 <script>
+import { routes } from './routes';
 import Menu from './components/shared/menu/Menu.vue';
-import Tabela from './components/shared/table/Table.vue';
+
 export default{
 	components:{
 		'meu-menu' : Menu,
-		'tabela' : Tabela
 	},
 	data(){
 		return{
-			registros:[
-			{usuario:'teste', email:'teste@teste'},
-			{usuario:'usuario2', email:'email2'},
-			{usuario:'usuario3', email:'email3'},
-			]
+			routes: routes
 		}
-		
 	}
-
-
-
 }
-
-
-
 </script>
 
 <style scoped>

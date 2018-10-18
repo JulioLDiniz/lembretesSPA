@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<table class="table">
+		<table class="table tamanho" >
 			<thead>
 				<tr>
 					<th v-for="head in heads" >{{head}}</th>
@@ -21,5 +21,4 @@ export default {
 }
 </script>
 <style>
-
 </style>

@@ -8,8 +8,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item mx-0 mx-lg-1" v-for="item of itens">
-						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" :href="item.link">{{item.titulo}}</a>
+					<li class="nav-item mx-0 mx-lg-1" v-for="rota in rotas">
+						<router-link :to="rota.path ? rota.path : '/'" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" >{{ rota.titulo }}</router-link>
 					</li>
 				</ul>
 			</div>
@@ -18,19 +18,15 @@
 </template>
 <script>
 export default{
-	data(){
-		return{
-			itens: [
-			{link: '#trabalho', titulo: 'Trabalho'},
-			{link: '#estudo', titulo: 'Estudo'},
-			{link: '#casa', titulo: 'Casa'},
-			{link: '#outros', titulo: 'Outros'}
-			]
-		}  
-	} 
+	props: {
+		rotas: {
+			type: Array,
+			required: true
+		}
+	}
 }
 </script>
-<style>
+<style scoped>
 #mainNav{
 	position: relative;
 }
